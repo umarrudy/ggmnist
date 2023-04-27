@@ -34,54 +34,50 @@ version of the MNIST network doesn't use convolutions.
 Here is how to run the example programs:
 
 ```bash
-# Build ggml + examples
-git clone https://github.com/ggerganov/ggml
-cd ggml
-mkdir build && cd build
-cmake ..
-make -j4 mnist
+# Build
+git clone git@github.com:umarrudy/ggmnist.git
+cd ggmnist
+make
 
 # Run the MNIST model
-./bin/mnist ../examples/mnist/models/mnist/ggml-model-f32.bin ../examples/mnist/models/mnist/t10k-images.idx3-ubyte
+./main models/mnist/ggml-model-f32.bin models/mnist/t10k-images.idx3-ubyte
 ```
-
-For more information, checkout the corresponding programs in the [examples](examples) folder.
 
 # Sample output
 
 
 ```
-$  ./bin/mnist ./models/mnist/ggml-model-f32.bin ../examples/mnist/models/mnist/t10k-images.idx3-ubyte
-mnist_model_load: loading model from './models/mnist/ggml-model-f32.bin'
+$ ./main models/mnist/ggml-model-f32.bin models/mnist/t10k-images.idx3-ubyte
+mnist_model_load: loading model from 'models/mnist/ggml-model-f32.bin'
 mnist_model_load: ggml ctx size =   1.52 MB
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
-_ _ _ _ _ _ _ _ _ _ _ _ _ * * _ _ _ _ _ _ _ _ _ _ _ _ _
-_ _ _ _ _ _ _ _ _ _ _ _ * * * * _ _ _ _ _ _ _ _ _ _ _ _
-_ _ _ _ _ _ _ _ _ _ * * * _ _ _ * _ * * _ _ _ _ _ _ _ _
-_ _ _ _ _ _ _ _ _ * * _ _ _ _ _ * _ * _ _ _ _ _ _ _ _ _
-_ _ _ _ _ _ _ _ _ * * _ _ _ _ _ _ * * _ _ _ _ _ _ _ _ _
-_ _ _ _ _ _ _ _ * * _ _ _ _ _ _ * * * * _ _ _ _ _ _ _ _
-_ _ _ _ _ _ _ * * _ _ _ _ _ _ _ * * * * _ _ _ _ _ _ _ _
-_ _ _ _ _ _ _ * * _ _ _ _ _ * * _ _ * * _ _ _ _ _ _ _ _
-_ _ _ _ _ _ _ * * _ _ _ _ * * _ _ _ _ * _ _ _ _ _ _ _ _
-_ _ _ _ _ _ _ * * * * * * _ _ _ _ _ _ * _ _ _ _ _ _ _ _
-_ _ _ _ _ _ _ _ _ * _ _ _ _ _ _ _ _ _ * _ _ _ _ _ _ _ _
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ * _ _ _ _ _ _ _ _
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ * * _ _ _ _ _ _ _
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ * * _ _ _ _ _ _ _
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ * * _ _ _ _ _ _ _
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ * * _ _ _ _ _ _ _ _
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ * * * _ _ _ _ _ _ _ _
-_ _ _ _ _ _ _ _ _ _ _ _ * _ _ * * * _ _ _ _ _ _ _ _ _ _
-_ _ _ _ _ _ _ _ _ _ _ _ * * * * * _ _ _ _ _ _ _ _ _ _ _
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . # # . # # . . . . . . . . . . 
+. . . . . . . . . . . . # # . . . # # . . . . . . . . . 
+. . . . . . . . . . . . # . . . . # # . . . . . . . . . 
+. . . . . . . . . . . # # . . . . # # # . . . . . . . . 
+. . . . . . . . . . . # . . . . # # # . . . . . . . . . 
+. . . . . . . . . . . # . . . . # # # . . . . . . . . . 
+. . . . . . . . . . . # . . . . # # . . . . . . . . . . 
+. . . . . . . . . . . # # . # # # # . . . . . . . . . . 
+. . . . . . . . . . . . # # . . # # . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . # . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . # . . . . . . . . . . 
+. . . . . . . . . . . . . . . . # # . . . . . . . . . . 
+. . . . . . . . . . . . . . . . # . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . # . . . . . . . . . . . 
+. . . . . . . . . . . . . . . # # . . . . . . . . . . . 
+. . . . . . . . . # . . . . . # # . . . . . . . . . . . 
+. . . . . . . . . # # . . . . # . . . . . . . . . . . . 
+. . . . . . . . . . # # # # # . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . 
 
 ggml_graph_dump_dot: dot -Tpng mnist.dot -o mnist.dot.png && open mnist.dot.png
 Predicted digit is 9
